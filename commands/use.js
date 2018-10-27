@@ -4,7 +4,7 @@ const humanize = (sec) => { return require('humanize-duration')(sec, { round: tr
 const Ranvier = require('ranvier');
 const { Broadcast, Logger, SkillErrors } = Ranvier;
 const { CommandParser } = Ranvier.CommandParser;
-const ItemUtil = require('../../ranvier-lib/lib/ItemUtil');
+const ItemUtil = require('../../bundle-example-lib/lib/ItemUtil');
 
 /**
  * Command for items with `usable` behavior. See bundles/ranvier-areas/areas/limbo/items.yml for

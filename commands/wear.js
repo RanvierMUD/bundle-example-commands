@@ -5,7 +5,7 @@ const { Broadcast, Logger } = Ranvier;
 const { CommandParser } = Ranvier.CommandParser;
 const { EquipSlotTakenError } = Ranvier.EquipErrors;
 const say = Broadcast.sayAt;
-const ItemUtil = require('../../ranvier-lib/lib/ItemUtil');
+const ItemUtil = require('../../bundle-example-lib/lib/ItemUtil');
 
 module.exports = {
   aliases: [ 'wield' ],

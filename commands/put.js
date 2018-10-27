@@ -4,7 +4,7 @@ const Ranvier = require('ranvier');
 const { Broadcast: B, ItemType } = Ranvier;
 const { CommandParser } = Ranvier.CommandParser;
 const dot = CommandParser.parseDot;
-const ItemUtil = require('../../ranvier-lib/lib/ItemUtil');
+const ItemUtil = require('../../bundle-example-lib/lib/ItemUtil');
 
 module.exports = {
   usage: 'put <item> <container>',

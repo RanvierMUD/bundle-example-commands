@@ -1,7 +1,7 @@
 'use strict';
 
 const { Broadcast } = require('ranvier');
-const LevelUtil = require('../../ranvier-lib/lib/LevelUtil');
+const LevelUtil = require('../../bundle-example-lib/lib/LevelUtil');
 
 module.exports = {
   aliases: [ 'level', 'experience' ],

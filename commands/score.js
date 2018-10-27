@@ -2,7 +2,7 @@
 
 const sprintf = require('sprintf-js').sprintf;
 const { Broadcast: B } = require('ranvier');
-const Combat = require('../../ranvier-combat/lib/Combat');
+const Combat = require('../../bundle-example-combat/lib/Combat');
 
 module.exports = {
   aliases: [ 'stats' ],

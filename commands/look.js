@@ -11,7 +11,7 @@ const {
   Player
 } = Ranvier;
 const { CommandParser } = Ranvier.CommandParser;
-const ItemUtil = require('../../ranvier-lib/lib/ItemUtil');
+const ItemUtil = require('../../bundle-example-lib/lib/ItemUtil');
 
 module.exports = {
   usage: "look [thing]",
