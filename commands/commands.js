@@ -23,7 +23,7 @@ function sayAtColumns (source, strings, numCols) {
     map[col].push(string);
     rowCount++;
     return map;
-  }, [])
+  }, []);
 
   col = 0;
   let row = 0;
@@ -67,8 +67,8 @@ module.exports = {
       }
     }
 
-    commands.sort()
-    sayAtColumns(player, commands, 4)
+    commands.sort();
+    sayAtColumns(player, commands, 4);
 
     // channels
     Broadcast.sayAt(player);
@@ -82,7 +82,7 @@ module.exports = {
     }
 
     channelCommands.sort();
-    sayAtColumns(player, channelCommands, 4)
+    sayAtColumns(player, channelCommands, 4);
 
 
     // end with a line break

@@ -127,7 +127,7 @@ function lookRoom(state, player) {
     if (npc.quests) {
       const quests = npc.quests.map(qid => {
         try {
-          return state.QuestFactory.create(state, qid, player)
+          return state.QuestFactory.create(state, qid, player);
         } catch (e) {
           Logger.error(e.message);
           return null;

@@ -145,7 +145,7 @@ module.exports = {
     if (item) {
       validTarget = true;
       if (typeof item.closed == 'undefined' && typeof item.locked == 'undefined') {
-        return B.sayAt(player, `${ItemUtil.display(item)} is not a container.`)
+        return B.sayAt(player, `${ItemUtil.display(item)} is not a container.`);
       }
       switch (action) {
         case 'open': {
