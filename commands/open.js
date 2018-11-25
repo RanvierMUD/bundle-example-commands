@@ -89,6 +89,7 @@ module.exports = {
             } else {
               return B.sayAt(player, "The door is not closed.");
             }
+            break;
           }
           case 'close': {
             if (door.locked || door.closed) {
