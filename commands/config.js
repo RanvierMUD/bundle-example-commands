@@ -1,8 +1,7 @@
 'use strict';
 
 const Ranvier = require('ranvier');
-const { Broadcast, Data } = Ranvier;
-const Parser = Ranvier.CommandParser.CommandParser;
+const { Broadcast } = Ranvier;
 
 module.exports = {
   usage: 'config <set/list> [setting] [value]',
@@ -64,9 +63,5 @@ module.exports = {
     player.setMeta(`config.${configToSet}`, possibleValues[valueToSet]);
 
     Broadcast.sayAt(player, 'Configuration value saved');
-
-    function listCurrentConfiguration() {
-    }
   }
 };
-

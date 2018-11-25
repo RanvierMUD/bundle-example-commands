@@ -75,7 +75,6 @@ module.exports = {
     Broadcast.sayAt(player, "<bold><white>                  Channels</bold></white>");
     Broadcast.sayAt(player, "<bold><white>===============================================</bold></white>");
 
-    let i = 0;
     let channelCommands = [];
     for (let [ name ] of state.ChannelManager.channels) {
         channelCommands.push(name);

@@ -33,7 +33,6 @@ module.exports = {
 };
 
 function render(state, hfile) {
-  let body = hfile.body;
   const name = hfile.name;
 
   const width = 80;
@@ -77,14 +76,14 @@ function searchHelpfiles(args, player, state) {
     return B.sayAt(player, "Sorry, no results were found for your search.");
   }
   if (results.size === 1) {
-    const [ _, hfile ] = [...results][0];
+    const [ , hfile ] = [...results][0];
     return B.sayAt(player, render(state, hfile));
   }
   B.sayAt(player, "<yellow>---------------------------------------------------------------------------------</yellow>");
   B.sayAt(player, "<white>Search Results:</white>");
   B.sayAt(player, "<yellow>---------------------------------------------------------------------------------</yellow>");
 
-  for (const [name, help] of results) {
+  for (const [name, ] of results) {
     B.sayAt(player, `<cyan>${name}</cyan>`);
   }
 }
