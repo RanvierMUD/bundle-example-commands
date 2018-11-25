@@ -123,6 +123,7 @@ module.exports = {
                   B.sayAt(player, '*Click* The door unlocks.');
                   return doorRoom.unlockDoor(targetRoom);
                 } else {
+                  const keyItem = state.ItemFactory.getDefinition(door.lockedBy);
                   return B.sayAt(player, `The door can only be unlocked with ${keyItem.name}.`);
                 }
               } else {
