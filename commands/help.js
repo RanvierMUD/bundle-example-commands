@@ -83,7 +83,7 @@ function searchHelpfiles(args, player, state) {
   B.sayAt(player, "<white>Search Results:</white>");
   B.sayAt(player, "<yellow>---------------------------------------------------------------------------------</yellow>");
 
-  for (const [name, ] of results) {
+  for (const [name] of results) {
     B.sayAt(player, `<cyan>${name}</cyan>`);
   }
 }
