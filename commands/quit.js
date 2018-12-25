@@ -12,7 +12,7 @@ module.exports = {
     player.save(() => {
       Broadcast.sayAt(player, "Goodbye!");
       Broadcast.sayAtExcept(player.room, `${player.name} disappears.`, player);
-      player.socket.emit('close');
+      state.PlayerManager.removePlayer(player, true);
     });
   }
 };
