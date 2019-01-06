@@ -181,47 +181,33 @@ function lookRoom(state, player) {
   });
 
   B.at(player, '[<yellow><b>Exits</yellow></b>: ');
-    // find explicitly defined exits
-    let foundExits = Array.from(room.exits).map(ex => {
-      return [ex.direction, state.RoomManager.getRoom(ex.roomId)];
-    });
 
-    // infer from coordinates
-    if (room.coordinates) {
-      const coords = room.coordinates;
-      const area = room.area;
-      const directions = {
-        north: [0, 1, 0],
-        south: [0, -1, 0],
-        east: [1, 0, 0],
-        west: [-1, 0, 0],
-        up: [0, 0, 1],
-        down: [0, 0, -1],
-      };
+  const exits = room.getExits();
+  const foundExits = [];
 
-      foundExits = [...foundExits, ...(Object.entries(directions)
-        .map(([dir, diff]) => {
-          return [dir, area.getRoomAtCoordinates(coords.x + diff[0], coords.y + diff[1], coords.z + diff[2])];
-        })
-        .filter(([dir, exitRoom]) => {
-          return !!exitRoom;
-        })
-      )];
+  // prioritize explicit over inferred exits with the same name
+  for (const exit of exits) {
+    if (foundExits.find(fe => fe.direction === exit.direction)) {
+      continue;
     }
 
-    B.at(player, foundExits.map(([dir, exitRoom]) => {
-      const door = room.getDoor(exitRoom) || exitRoom.getDoor(room);
-      if (door && (door.locked || door.closed)) {
-        return '(' + dir + ')';
-      }
+    foundExits.push(exit);
+  }
 
-      return dir;
-    }).join(' '));
-
-    if (!foundExits.length) {
-      B.at(player, 'none');
+  B.at(player, foundExits.map(exit => {
+    const exitRoom = state.RoomManager.getRoom(exit.roomId);
+    const door = room.getDoor(exitRoom) || exitRoom.getDoor(room);
+    if (door && (door.locked || door.closed)) {
+      return '(' + exit.direction + ')';
     }
-    B.sayAt(player, ']');
+
+    return exit.direction;
+  }).join(' '));
+
+  if (!foundExits.length) {
+    B.at(player, 'none');
+  }
+  B.sayAt(player, ']');
 }
 
 function lookEntity(state, player, args) {
