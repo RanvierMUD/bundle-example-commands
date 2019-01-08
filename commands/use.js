@@ -1,9 +1,8 @@
 'use strict';
 
 const humanize = (sec) => { return require('humanize-duration')(sec, { round: true }); };
-const Ranvier = require('ranvier');
-const { Broadcast, Logger, SkillErrors } = Ranvier;
-const { CommandParser } = Ranvier.CommandParser;
+const { Broadcast, Logger, SkillErrors } = require('ranvier');
+const ArgParser = require('../../bundle-example-lib/lib/ArgParser');
 const ItemUtil = require('../../bundle-example-lib/lib/ItemUtil');
 
 /**
@@ -19,7 +18,7 @@ module.exports = {
       return say("Use what?");
     }
 
-    const item = CommandParser.parseDot(args, player.inventory);
+    const item = ArgParser.parseDot(args, player.inventory);
 
     if (!item) {
       return say("You don't have anything like that.");

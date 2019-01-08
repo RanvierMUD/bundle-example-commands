@@ -1,8 +1,7 @@
 'use strict';
 
-const Ranvier = require('ranvier');
-const { Broadcast } = Ranvier;
-const { CommandParser } = Ranvier.CommandParser;
+const { Broadcast } = require('ranvier');
+const ArgParser = require('../../bundle-example-lib/lib/ArgParser');
 
 module.exports = {
   usage: 'emote <message>',
@@ -47,5 +46,5 @@ module.exports = {
 
 function findTarget(player, thingName) {
   const findableThings = new Set([...player.room.players, ...player.equipment, ...player.room.npcs, ...player.room.items]);
-  return CommandParser.parseDot(thingName, findableThings);
+  return ArgParser.parseDot(thingName, findableThings);
 }

@@ -1,8 +1,7 @@
 'use strict';
 
-const Ranvier = require('ranvier');
-const { Broadcast, ItemType } = Ranvier;
-const { CommandParser } = Ranvier.CommandParser;
+const { Broadcast, ItemType } = require('ranvier');
+const ArgParser = require('../../bundle-example-lib/lib/ArgParser');
 const ItemUtil = require('../../bundle-example-lib/lib/ItemUtil');
 
 module.exports = {
@@ -13,7 +12,7 @@ module.exports = {
       return Broadcast.sayAt(player, 'Remove what?');
     }
 
-    const result = CommandParser.parseDot(arg, player.equipment, true);
+    const result = ArgParser.parseDot(arg, player.equipment, true);
     if (!result) {
       return Broadcast.sayAt(player, "You aren't wearing anything like that.");
     }

@@ -1,8 +1,7 @@
 'use strict';
 
-const Ranvier = require('ranvier');
-const { Broadcast, ItemType } = Ranvier;
-const { CommandParser } = Ranvier.CommandParser;
+const { Broadcast, ItemType } = require('ranvier');
+const ArgParser = require('../../bundle-example-lib/lib/ArgParser');
 const ItemUtil = require('../../bundle-example-lib/lib/ItemUtil');
 
 module.exports = {
@@ -41,7 +40,7 @@ module.exports = {
     } else {
     //Newest containers should go first, so that if you type get all corpse you get from the 
     // most recent corpse. See issue #247.
-      container = CommandParser.parseDot(parts[1], [...player.room.items].reverse());
+      container = ArgParser.parseDot(parts[1], [...player.room.items].reverse());
       if (!container) {
         return Broadcast.sayAt(player, "You don't see anything like that here.");
       }
@@ -79,7 +78,7 @@ module.exports = {
       return;
     }
 
-    const item = CommandParser.parseDot(search, source);
+    const item = ArgParser.parseDot(search, source);
     if (!item) {
       return Broadcast.sayAt(player, "You don't see anything like that here.");
     }

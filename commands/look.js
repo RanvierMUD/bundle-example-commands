@@ -2,15 +2,14 @@
 
 const humanize = (sec) => { return require('humanize-duration')(sec, { round: true }); };
 const sprintf = require('sprintf-js').sprintf;
-const Ranvier = require('ranvier');
 const {
   Broadcast: B,
   Item,
   ItemType,
   Logger,
   Player
-} = Ranvier;
-const { CommandParser } = Ranvier.CommandParser;
+} = require('ranvier');
+const ArgParser = require('../../bundle-example-lib/lib/ArgParser');
 const ItemUtil = require('../../bundle-example-lib/lib/ItemUtil');
 
 module.exports = {
@@ -222,10 +221,10 @@ function lookEntity(state, player, args) {
     search = args[0];
   }
 
-  let entity = CommandParser.parseDot(search, room.items);
-  entity = entity || CommandParser.parseDot(search, room.players);
-  entity = entity || CommandParser.parseDot(search, room.npcs);
-  entity = entity || CommandParser.parseDot(search, player.inventory);
+  let entity = ArgParser.parseDot(search, room.items);
+  entity = entity || ArgParser.parseDot(search, room.players);
+  entity = entity || ArgParser.parseDot(search, room.npcs);
+  entity = entity || ArgParser.parseDot(search, player.inventory);
 
   if (!entity) {
     return B.sayAt(player, "You don't see anything like that here.");

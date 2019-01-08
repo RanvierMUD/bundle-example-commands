@@ -2,10 +2,10 @@
 
 const Ranvier = require('ranvier');
 const { Broadcast, Logger } = Ranvier;
-const { CommandParser } = Ranvier.CommandParser;
 const { EquipSlotTakenError } = Ranvier.EquipErrors;
 const say = Broadcast.sayAt;
 const ItemUtil = require('../../bundle-example-lib/lib/ItemUtil');
+const ArgParser = require('../../bundle-example-lib/lib/ArgParser');
 
 module.exports = {
   aliases: [ 'wield' ],
@@ -17,7 +17,7 @@ module.exports = {
       return say(player, 'Wear what?');
     }
 
-    const item = CommandParser.parseDot(arg, player.inventory);
+    const item = ArgParser.parseDot(arg, player.inventory);
 
     if (!item) {
       return say(player, "You aren't carrying anything like that.");

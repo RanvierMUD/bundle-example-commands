@@ -1,8 +1,7 @@
 'use strict';
 
-const Ranvier = require('ranvier');
-const { Broadcast } = Ranvier;
-const { CommandParser } = Ranvier.CommandParser;
+const { Broadcast } = require('ranvier');
+const ArgParser = require('../../bundle-example-lib/lib/ArgParser');
 const ItemUtil = require('../../bundle-example-lib/lib/ItemUtil');
 
 module.exports = {
@@ -18,7 +17,7 @@ module.exports = {
       return Broadcast.sayAt(player, 'You are floating in the nether, it would disappear forever.');
     }
 
-    const item = CommandParser.parseDot(args, player.inventory);
+    const item = ArgParser.parseDot(args, player.inventory);
 
     if (!item) {
       return Broadcast.sayAt(player, "You aren't carrying anything like that.");
