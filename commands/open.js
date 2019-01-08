@@ -1,7 +1,6 @@
 'use strict';
 
-const Ranvier = require('ranvier');
-const { Broadcast: B } = Ranvier;
+const { Broadcast: B } = require('ranvier');
 const { CommandParser } = require('../../bundle-example-lib/lib/CommandParser');
 const ArgParser = require('../../bundle-example-lib/lib/ArgParser');
 const ItemUtil = require('../../bundle-example-lib/lib/ItemUtil');
