@@ -1,7 +1,7 @@
 'use strict';
 
 const { Broadcast } = require('ranvier');
-const ArgParser = require('../../bundle-example-lib/lib/ArgParser');
+const ArgParser = require('@bundles/bundle-example-lib/lib/ArgParser');
 
 module.exports = {
   usage: 'emote <message>',

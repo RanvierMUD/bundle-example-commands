@@ -1,9 +1,9 @@
 'use strict';
 
 const { Broadcast: B } = require('ranvier');
-const { CommandParser } = require('../../bundle-example-lib/lib/CommandParser');
-const ArgParser = require('../../bundle-example-lib/lib/ArgParser');
-const ItemUtil = require('../../bundle-example-lib/lib/ItemUtil');
+const { CommandParser } = require('@bundles/bundle-example-lib/lib/CommandParser');
+const ArgParser = require('@bundles/bundle-example-lib/lib/ArgParser');
+const ItemUtil = require('@bundles/bundle-example-lib/lib/ItemUtil');
 
 module.exports = {
   aliases: ['close', 'lock', 'unlock'],

@@ -4,8 +4,8 @@ const Ranvier = require('ranvier');
 const { Broadcast, Logger } = Ranvier;
 const { EquipSlotTakenError } = Ranvier.EquipErrors;
 const say = Broadcast.sayAt;
-const ItemUtil = require('../../bundle-example-lib/lib/ItemUtil');
-const ArgParser = require('../../bundle-example-lib/lib/ArgParser');
+const ItemUtil = require('@bundles/bundle-example-lib/lib/ItemUtil');
+const ArgParser = require('@bundles/bundle-example-lib/lib/ArgParser');
 
 module.exports = {
   aliases: [ 'wield' ],
