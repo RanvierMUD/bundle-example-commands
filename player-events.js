@@ -24,7 +24,6 @@ module.exports = {
 
       this.addEffect(state.EffectFactory.create(
         'equip',
-        this,
         config,
         effectState
       ));

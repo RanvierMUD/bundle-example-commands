@@ -72,7 +72,7 @@ module.exports = {
       }, usable.config || {});
       const effectState = usable.state || {};
 
-      let useEffect = state.EffectFactory.create(usable.effect, player, effectConfig, effectState);
+      let useEffect = state.EffectFactory.create(usable.effect, effectConfig, effectState);
       if (!useEffect) {
         Logger.error(`Item: ${item.entityReference} has invalid usable configuration.`);
         return say("You can't use that.");
