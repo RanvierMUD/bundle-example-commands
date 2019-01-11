@@ -30,11 +30,12 @@ module.exports = {
     const roomExit = CommandParser.canGo(player, exitDirection);
 
     if (roomExit) {
+      const roomExitRoom = state.RoomManager.getRoom(roomExit.roomId);
       let doorRoom = player.room;
-      let targetRoom = roomExit.room
+      let targetRoom = roomExitRoom;
       let door = doorRoom.getDoor(targetRoom);
       if (!door) {
-        doorRoom = roomExit.room;
+        doorRoom = roomExitRoom;
         targetRoom = player.room;
         door = doorRoom.getDoor(targetRoom);
       }
