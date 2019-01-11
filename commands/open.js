@@ -27,7 +27,7 @@ module.exports = {
       exitDirection = parts[1];
     }
 
-    const roomExit = CommandParser.canGo(state, player, exitDirection);
+    const roomExit = CommandParser.canGo(player, exitDirection);
 
     if (roomExit) {
       let doorRoom = player.room;
