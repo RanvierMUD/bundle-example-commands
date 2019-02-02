@@ -1,7 +1,7 @@
 'use strict';
 
 const { Broadcast } = require('ranvier');
-const ItemUtil = require('@bundles/bundle-example-lib/lib/ItemUtil');
+const ItemUtil = require('../../bundle-example-lib/lib/ItemUtil');
 
 module.exports = {
   usage: 'inventory',

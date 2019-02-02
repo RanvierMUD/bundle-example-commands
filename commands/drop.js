@@ -1,8 +1,8 @@
 'use strict';
 
 const { Broadcast } = require('ranvier');
-const ArgParser = require('@bundles/bundle-example-lib/lib/ArgParser');
-const ItemUtil = require('@bundles/bundle-example-lib/lib/ItemUtil');
+const ArgParser = require('../../bundle-example-lib/lib/ArgParser');
+const ItemUtil = require('../../bundle-example-lib/lib/ItemUtil');
 
 module.exports = {
   usage: 'drop <item>',
