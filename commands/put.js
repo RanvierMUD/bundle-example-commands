@@ -15,7 +15,7 @@ module.exports = {
     }
 
     // put 3.foo in bar -> put 3.foo bar -> put 3.foo into bar
-    const parts = args.split(' ').filter(arg => !arg.match(/in/) && !arg.match(/into/));
+    const parts = args.split(' ').filter(arg => !arg.match(/^in$/) && !arg.match(/^into$/));
 
     if (parts.length === 1) {
       return B.sayAt(player, "Where do you want to put it?");
