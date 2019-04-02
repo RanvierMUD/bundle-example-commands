@@ -1,0 +1,11 @@
+---
+command: alias
+body: |
+  Alias allows you to set shortcuts for commands or long strings of text.
+
+  - alias - print all defined aliases
+  - alias <word> - delete matching defined alias
+  - alias <word> <command> - define or update an alias
+
+keywords:
+- aliases
