@@ -2,7 +2,7 @@
 
 const { Broadcast: B } = require('ranvier');
 
-/* To implement a modal command (specifical via the example-input-events bundle)
+/* To implement a modal command (specifically via the example-input-events bundle)
  * have your command's function return a value. That value will put the player in that
  * command state. Subsequent input from the player will be passed directly to this command
  * with all input as `args` and the current state as the 4th argument after arg0. */
