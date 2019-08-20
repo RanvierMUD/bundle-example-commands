@@ -4,6 +4,7 @@ const humanize = (sec) => { return require('humanize-duration')(sec, { round: tr
 const sprintf = require('sprintf-js').sprintf;
 const {
   Broadcast: B,
+  Room,
   Item,
   ItemType,
   Logger,
@@ -15,8 +16,8 @@ const ItemUtil = require('../../bundle-example-lib/lib/ItemUtil');
 module.exports = {
   usage: "look [thing]",
   command: state => (args, player) => {
-    if (!player.room) {
-      Logger.error(player.getName() + ' is in limbo.');
+    if (!player.room || !(player.room instanceof Room)) {
+      Logger.error(player.name + ' is in limbo.');
       return B.sayAt(player, 'You are in a deep, dark void.');
     }
 
@@ -186,7 +187,7 @@ function lookRoom(state, player) {
 
   B.at(player, foundExits.map(exit => {
     const exitRoom = state.RoomManager.getRoom(exit.roomId);
-    const door = room.getDoor(exitRoom) || exitRoom.getDoor(room);
+    const door = room.getDoor(exitRoom) || (exitRoom && exitRoom.getDoor(room));
     if (door && (door.locked || door.closed)) {
       return '(' + exit.direction + ')';
     }
