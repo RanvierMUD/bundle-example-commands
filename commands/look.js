@@ -162,7 +162,7 @@ function lookRoom(state, player) {
         npcLabel = '<red>NPC</red>';
         break;
       case (npc.level - player.level > 3):
-        npcLabel = '<yellow>NPC</red>';
+        npcLabel = '<yellow>NPC</yellow>';
         break;
       default:
         npcLabel = '<green>NPC</green>';
