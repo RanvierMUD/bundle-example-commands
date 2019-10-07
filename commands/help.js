@@ -45,10 +45,12 @@ function render(state, hfile) {
   if (hfile.command) {
     let actualCommand = state.CommandManager.get(hfile.command);
 
-    header += formatHeaderItem('Syntax', actualCommand.usage);
+    if (actualCommand) {
+      header += formatHeaderItem('Syntax', actualCommand.usage);
 
-    if (actualCommand.aliases && actualCommand.aliases.length > 0){
-      header += formatHeaderItem('Aliases', actualCommand.aliases.join(', '));
+      if (actualCommand.aliases && actualCommand.aliases.length > 0){
+        header += formatHeaderItem('Aliases', actualCommand.aliases.join(', '));
+      }
     }
   } else if (hfile.channel) {
     header += formatHeaderItem('Syntax', state.ChannelManager.get(hfile.channel).getUsage());
