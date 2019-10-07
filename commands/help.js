@@ -2,6 +2,8 @@
 
 const { Broadcast: B, Logger } = require('ranvier');
 
+const width = 80;
+const bar = B.line(width, '-', 'yellow') + '\r\n';
 
 module.exports = {
   usage: 'help [search] [topic keyword]',
@@ -35,9 +37,6 @@ module.exports = {
 function render(state, hfile) {
   let body = hfile.body;
   const name = hfile.name;
-
-  const width = 80;
-  const bar = B.line(width, '-', 'yellow') + '\r\n';
 
   let header = bar + B.center(width, name, 'white') + '\r\n' + bar;
 
@@ -80,9 +79,9 @@ function searchHelpfiles(args, player, state) {
     const [ _, hfile ] = [...results][0];
     return B.sayAt(player, render(state, hfile));
   }
-  B.sayAt(player, "<yellow>---------------------------------------------------------------------------------</yellow>");
+  B.sayAt(player, bar);
   B.sayAt(player, "<white>Search Results:</white>");
-  B.sayAt(player, "<yellow>---------------------------------------------------------------------------------</yellow>");
+  B.sayAt(player, bar);
 
   for (const [name, help] of results) {
     B.sayAt(player, `<cyan>${name}</cyan>`);
