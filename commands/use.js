@@ -24,7 +24,7 @@ module.exports = {
       return say("You don't have anything like that.");
     }
 
-    const usable = item.getBehavior('usable');
+    const usable = JSON.parse(JSON.stringify(item.getBehavior('usable')));
     if (!usable) {
       return say("You can't use that.");
     }
