@@ -53,6 +53,8 @@ module.exports = {
        * Add or update alias with args
        */
       if (aliases && aliases[alias]) {
+        aliases[alias] = commandArgs.join(" ");
+        player.setMeta("alias", aliases);
         return B.sayAt(player, `Alias '${alias}' updated!`);
       }
 
